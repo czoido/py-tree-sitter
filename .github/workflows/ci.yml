@@ -9,6 +9,7 @@ on:
       - CMakeLists.txt
       - conanfile.py
       - .github/workflows/ci.yml
+      - pyproject.toml
   pull_request:
     paths:
       - tree_sitter/**
