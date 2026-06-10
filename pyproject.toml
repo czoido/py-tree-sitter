@@ -1,6 +1,10 @@
 [build-system]
-requires = ["setuptools>=43"]
-build-backend = "setuptools.build_meta"
+requires = ["conan-py-build"]
+build-backend = "conan_py_build.build"
+
+[tool.conan-py-build]
+wheel.packages = ["tree_sitter"]
+wheel.exclude = ["binding/**"]
 
 [project]
 name = "tree-sitter"
@@ -19,6 +23,7 @@ classifiers = [
 ]
 requires-python = ">=3.10"
 readme = "README.md"
+license-files = ["LICENSE"]
 
 [project.urls]
 Homepage = "https://tree-sitter.github.io/tree-sitter/"
@@ -48,8 +53,6 @@ indent-width = 4
 extend-exclude = [
     ".github",
     "__pycache__",
-    "setup.py",
-    "tree_sitter/core",
 ]
 
 [tool.ruff.format]
@@ -60,9 +63,6 @@ indent-style = "space"
 build-frontend = "build"
 test-extras = ["tests"]
 test-command = "python -munittest discover -s {project}/tests -v"
-
-[tool.mypy]
-exclude = ["tree_sitter/core"]
 
 [tool.rstcheck]
 ignore_directives = [
