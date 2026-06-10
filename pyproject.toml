@@ -71,3 +71,4 @@ ignore_directives = [
     "automethod",
     "autosummary"
 ]
+
